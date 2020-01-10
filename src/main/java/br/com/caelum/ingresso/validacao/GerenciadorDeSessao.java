@@ -15,15 +15,13 @@ public class GerenciadorDeSessao {
 		this.sessoesDaSala = sessoesDaSala;
 	}
 	
-	public boolean cabe(Sessao sessaNova) {
-		Object sessaoNova;
+	public boolean cabe(Sessao sessaoNova) {
 		if (terminaAmanha(sessaoNova)) {
 			return false;
 		}
 		
 		return sessoesDaSala.stream().noneMatch(sessaoExistente ->
-					horarioIsConflitante(sessaoExistente, sessaoNova)
-					);
+		horarioIsConflitante(sessaoExistente, sessaoNova));
 	}
 	
 	private boolean terminaAmanha(Sessao sessao) {
