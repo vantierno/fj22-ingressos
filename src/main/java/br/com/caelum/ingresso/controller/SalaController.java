@@ -76,7 +76,6 @@ public class SalaController {
         return view;
     }
 
-    @SuppressWarnings("null")
 	@GetMapping("/admin/sala/{id}/lugares/")
     public ModelAndView listaLugares(@PathVariable("id") Integer id) {
 
@@ -84,9 +83,7 @@ public class SalaController {
 
         Sala sala = salaDao.findOne(id);
         modelAndView.addObject("sala", sala);
-        
-        ModelAndView view = null;
-		view.addObject("sessoes", sessaoDao.buscaSessoesDaSala(sala));
+        modelAndView.addObject("sessoes", sessaoDao.buscaSessoesDaSala(sala));
 
         return modelAndView;
     }
