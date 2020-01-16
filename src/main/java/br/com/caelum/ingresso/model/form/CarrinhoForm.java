@@ -28,10 +28,10 @@ public class CarrinhoForm {
 		
 		return this.ingressos.stream().map(ingresso -> {
 			Sessao sessao = sessaoDao.findOne(ingresso.getSessao().getId());
-			Lugar lugar = lugarDao.findOne(ingresso.getLugar().getId());
+			Lugar lugar = lugarDao.finfOne(ingresso.getLugar().getId());
 			TipoDeIngresso tipoDeIngresso = ingresso.getTipoDeIngresso();
 			return new Ingresso(sessao,tipoDeIngresso,lugar);
-		}).collected(Collectors.toList());
+		}).collect(Collectors.toList());
 		
 	}
 	
